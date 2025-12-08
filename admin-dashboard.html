@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/lucide-icons/dist/umd/lucide.js"></script>
   </head>
   <body class="font-inter bg-gray-50 text-gray-900">
+
     <!-- Top Navigation -->
     <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
       <div
@@ -16,14 +17,6 @@
         <h1 class="text-2xl font-bold tracking-tight">
           Admin<span class="text-blue-600">Hub</span>
         </h1>
-        <div class="hidden md:flex items-center gap-6">
-          <button class="hover:text-blue-600 transition">
-            <i data-lucide="user"></i>
-          </button>
-          <button class="hover:text-red-600 transition">
-            <i data-lucide="log-out"></i>
-          </button>
-        </div>
         <button class="md:hidden px-3 py-2 border rounded">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
@@ -38,46 +31,76 @@
           <ul class="space-y-4">
             <li>
               <a
-                href="#"
-                class="flex items-center gap-3 text-gray-700 hover:text-blue-600"
+                href="admin-dashboard.html"
+                class="flex items-center gap-2 text-gray-700 hover:text-blue-600"
               >
-                <i data-lucide="home"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-house-icon lucide-house"
+                >
+                  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                  <path
+                    d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  />
+                </svg>
                 Home
               </a>
             </li>
             <li>
               <a
                 href="#"
-                class="flex items-center gap-3 text-gray-700 hover:text-blue-600"
+                class="flex items-center gap-2 text-gray-700 hover:text-blue-600"
               >
-                <i data-lucide="users"></i>
-                Users
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center gap-3 text-gray-700 hover:text-blue-600"
-              >
-                <i data-lucide="briefcase"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-briefcase-business-icon lucide-briefcase-business"
+                >
+                  <path d="M12 12h.01" />
+                  <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                  <path d="M22 13a18.15 18.15 0 0 1-20 0" />
+                  <rect width="20" height="14" x="2" y="6" rx="2" />
+                </svg>
                 Jobs
               </a>
             </li>
             <li>
               <a
-                href="#"
-                class="flex items-center gap-3 text-gray-700 hover:text-blue-600"
+                href="admin-setting.html"
+                class="flex items-center gap-2 text-gray-700 hover:text-blue-600"
               >
-                <i data-lucide="bar-chart-2"></i>
-                Analytics
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="flex items-center gap-3 text-gray-700 hover:text-blue-600"
-              >
-                <i data-lucide="settings"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-settings-icon lucide-settings"
+                >
+                  <path
+                    d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+                  />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
                 Settings
               </a>
             </li>
@@ -113,31 +136,17 @@
                 <th class="px-4 py-2">Email</th>
                 <th class="px-4 py-2">Role</th>
                 <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2 text-left">Info Button</th>
               </tr>
             </thead>
             <tbody id="tableBodyUsers">
-              <tr class="border-b">
-                <td class="px-4 py-2">Alice Johnson</td>
-                <td class="px-4 py-2">alice@example.com</td>
-                <td class="px-4 py-2">Admin</td>
-                <td class="px-4 py-2">
-                  <span class="text-green-600 font-medium">Active</span>
-                </td>
-              </tr>
-              <tr class="border-b">
-                <td class="px-4 py-2">Bob Smith</td>
-                <td class="px-4 py-2">bob@example.com</td>
-                <td class="px-4 py-2">User</td>
-                <td class="px-4 py-2">
-                  <span class="text-red-600 font-medium">Inactive</span>
-                </td>
-              </tr>
+              <!-- users -->
             </tbody>
           </table>
         </div>
       </main>
     </div>
-
   </body>
-  <script type="module" src="./js/dashboard.js"></script>
+  <script type="module" src="./assets/admin/dashboard.js"></script>
+  <script type="module" src="./assets/js/utils/guard.js"></script>
 </html>

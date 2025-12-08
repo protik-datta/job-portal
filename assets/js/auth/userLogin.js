@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", (e) => {
     addCurrentUser(adminUser);
     toast("Admin login successful!");
     setTimeout(() => {
-      window.location.href = "./admin/admin-dashboard.html";
+      window.location.href = "admin-dashboard.html";
     }, 1200);
     return;
   }

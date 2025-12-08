@@ -1,0 +1,65 @@
+import { getJobList } from "../../assets/js/utils/api.js";
+import { getCurrentUsers, getUsers } from "../../assets/js/utils/storage.js";
+
+const totalUsers = document.querySelector("#totalUsers");
+const activeJobs = document.querySelector("#activeJobs");
+const activeUsers = document.querySelector("#activeUsers");
+const tableBodyUsers = document.querySelector("#tableBodyUsers");
+
+function dashboardDetails() {
+  const users = getUsers();
+  const currentUsers = getCurrentUsers();
+  totalUsers.textContent = users.length;
+
+  getJobList.then((dataNum) => {
+    activeJobs.textContent = dataNum.length;
+  });
+
+  activeUsers.textContent = currentUsers.length;
+}
+
+dashboardDetails();
+
+function showUsers() {
+  const users = getUsers();
+  const currentUsers = getCurrentUsers();
+
+  tableBodyUsers.innerHTML = "";
+
+  users.forEach((user) => {
+    const isActive = currentUsers.some((u) => u.email === user.email);
+
+    const row = document.createElement("tr");
+    row.classList.add("border-b");
+
+    row.innerHTML = `
+      <td class="px-4 py-2">${user.name}</td>
+      <td class="px-4 py-2">${user.email}</td>
+      <td class="px-4 py-2">${user.role.toUpperCase()}</td>
+      <td class="px-4 py-2">
+        <span class="font-medium ${
+          isActive ? "text-green-600" : "text-red-600"
+        }">
+          ${isActive ? "Active" : "Inactive"}
+        </span>
+      </td>
+      <td class="px-4 py-2">
+        <button class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition infoBtn">
+          Info
+        </button>
+      </td>
+    `;
+
+    tableBodyUsers.appendChild(row);
+
+    // Info button event
+    row.querySelector(".infoBtn").addEventListener("click", () => {
+      localStorage.setItem("selectedUser", JSON.stringify(user));
+      
+      window.location.href = "admin-user-details.html";
+    });
+  });
+}
+
+showUsers();
+lucide.replace();

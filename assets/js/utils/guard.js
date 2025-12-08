@@ -1,8 +1,9 @@
 import { getCurrentUsers } from "../utils/storage.js";
+import { toast } from "./alert.js";
 
 const currentUsers = getCurrentUsers();
-const adminPages = ["admin-dashboard.html"];
-const currentPage = window.location.pathname.split("/").pop();
+const adminPages = "admin-dashboard.html";
+const userPages = "jobs.html";
 
 // Not logged in
 if (currentUsers.length === 0) {
@@ -12,18 +13,17 @@ if (currentUsers.length === 0) {
 
 // Admin-only access
 if (
-  adminPages.includes(currentPage) &&
-  !currentUsers.some((u) => u.role === "admin")
+  (window.location.href =
+    adminPages && !currentUsers.some((u) => u.role === "admin"))
 ) {
-  alert("Access denied! Admins only.");
+  toast("Access denied! Admins only.");
   window.location.href = "index.html";
 }
 
 // User-only access
-const userPages = ["jobs.html", "profile.html"];
 if (
-  userPages.includes(currentPage) &&
-  currentUsers.some((u) => u.role === "admin")
+  (window.location.href =
+    userPages && currentUsers.some((u) => u.role === "admin"))
 ) {
   window.location.href = "admin-dashboard.html";
 }
