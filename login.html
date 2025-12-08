@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- alert box -->
+    <div
+      id="toast-default"
+      class="fixed top-0 left-1/2 -translate-x-1/2 -translate-y-12 opacity-0 flex items-center w-full max-w-xs p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default transition-all duration-500 ease-out"
+    >
+      <svg
+        class="w-6 h-6 text-fg-brand"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M18.122 17.645a7.185 7.185 0 0 1-2.656 2.495 7.06 7.06 0 0 1-3.52.853 6.617 6.617 0 0 1-3.306-.718 6.73 6.73 0 0 1-2.54-2.266c-2.672-4.57.287-8.846.887-9.668A4.448 4.448 0 0 0 8.07 6.31 4.49 4.49 0 0 0 7.997 4c1.284.965 6.43 3.258 5.525 10.631 1.496-1.136 2.7-3.046 2.846-6.216 1.43 1.061 3.985 5.462 1.754 9.23Z"
+        />
+      </svg>
+      <div class="ms-2.5 text-sm border-s border-default ps-3.5" id="toastMsg">
+        Set yourself free.
+      </div>
+      <button
+        id="close-toast"
+        type="button"
+        class="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6"
+          />
+        </svg>
+      </button>
+    </div>
+    <!-- alert box -->
+
+    <div class="min-h-screen flex fle-col items-center justify-center">
+      <div class="py-6 px-4">
+        <div class="grid lg:grid-cols-2 items-center gap-6 max-w-6xl w-full">
+          <div
+            class="border border-slate-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-lg:mx-auto"
+          >
+            <form action="#" class="space-y-6" id="signupForm">
+              <div class="mb-12">
+                <h1 class="text-slate-900 text-3xl font-semibold">Sign in</h1>
+                <p class="text-slate-600 text-[15px] mt-6 leading-relaxed">
+                  Sign in to your account and explore a world of possibilities.
+                  Your journey begins here.
+                </p>
+              </div>
+
+              <div>
+                <label class="text-slate-900 text-sm font-medium mb-2 block"
+                  >User name</label
+                >
+                <div class="relative flex items-center">
+                  <input
+                    name="username"
+                    type="text"
+                    id="username"
+                    class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-gray-600"
+                    placeholder="Enter user name"
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="text-slate-900 text-sm font-medium mb-2 block"
+                  >Password</label
+                >
+                <div class="relative flex items-center">
+                  <input
+                    name="password"
+                    type="password"
+                    id="password"
+                    class="w-full text-sm text-slate-900 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-gray-600"
+                    placeholder="Enter password"
+                  />
+                </div>
+              </div>
+
+              <div class="!mt-12">
+                <button
+                  type="submit"
+                  class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
+                >
+                  Sign in
+                </button>
+                <p class="text-sm !mt-6 text-center text-slate-600">
+                  Don't have an account?
+                  <a
+                    href="register.html"
+                    class="text-gray-600 font-medium hover:underline ml-1 whitespace-nowrap"
+                    >Register here</a
+                  >
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="max-lg:mt-8">
+            <img
+              src="https://readymadeui.com/login-image.webp"
+              class="w-full aspect-[71/50] max-lg:w-4/5 mx-auto block object-cover"
+              alt="login img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./assets/js/auth/userLogin.js"></script>
+  </body>
+</html>
