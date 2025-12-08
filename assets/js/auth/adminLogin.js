@@ -20,5 +20,19 @@ export const admins = [
     password: "Liton123",
     role: "admin",
   },
+  {
+    id: 4,
+    name: "Neloy Bhowmick",
+    email: "neloy@gmail.com",
+    password: "Neloy123",
+    role: "admin",
+  },
+  {
+    id: 5,
+    name: "Ashru Dey",
+    email: "ashru@gmail.com",
+    password: "Ashru123",
+    role: "admin",
+  },
 ];
 

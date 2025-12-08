@@ -25,8 +25,7 @@ function checkAuth(name, email, password) {
   }
 
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
   if (!passwordRegex.test(password)) {
     toast(
       "Password must be at least 8 characters and include uppercase, lowercase, number, and special character!"

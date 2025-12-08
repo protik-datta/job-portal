@@ -10,7 +10,10 @@ const profileData = document.getElementById("profileData");
 const adminProfile = document.getElementById("adminProfile");
 
 const currentUsers = getCurrentUsers();
-const currentAdmin = currentUsers.find((a) => a.role === "admin");
+const adminsLoggedIn = currentUsers.filter((u) => u.role === "admin");
+
+const currentAdmin =
+  adminsLoggedIn.length > 0 ? adminsLoggedIn[adminsLoggedIn.length - 1] : null;
 const admin = admins;
 
 // inject profile info

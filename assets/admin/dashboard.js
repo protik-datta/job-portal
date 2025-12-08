@@ -1,5 +1,5 @@
-import { getJobList } from "../../assets/js/utils/api.js";
-import { getCurrentUsers, getUsers } from "../../assets/js/utils/storage.js";
+import { getJobList } from "../js/utils/api.js";
+import { getCurrentUsers, getUsers } from "../js/utils/storage.js";
 
 const totalUsers = document.querySelector("#totalUsers");
 const activeJobs = document.querySelector("#activeJobs");
@@ -37,25 +37,24 @@ function showUsers() {
       <td class="px-4 py-2">${user.email}</td>
       <td class="px-4 py-2">${user.role.toUpperCase()}</td>
       <td class="px-4 py-2">
-        <span class="font-medium ${
-          isActive ? "text-green-600" : "text-red-600"
-        }">
-          ${isActive ? "Active" : "Inactive"}
-        </span>
+          <span class="font-medium ${
+            isActive ? "text-green-600" : "text-red-600"
+          }">
+            ${isActive ? "Active" : "Inactive"}
+          </span>
       </td>
       <td class="px-4 py-2">
-        <button class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition infoBtn">
-          Info
-        </button>
+          <button class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition infoBtn">
+            Info
+          </button>
       </td>
     `;
 
     tableBodyUsers.appendChild(row);
 
-    // Info button event
+    // ➤ Add event listener for info button
     row.querySelector(".infoBtn").addEventListener("click", () => {
       localStorage.setItem("selectedUser", JSON.stringify(user));
-      
       window.location.href = "admin-user-details.html";
     });
   });
@@ -63,3 +62,4 @@ function showUsers() {
 
 showUsers();
 lucide.replace();
+
