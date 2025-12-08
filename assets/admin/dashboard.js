@@ -1,5 +1,5 @@
-import { getJobList } from "../../assets/js/utils/api.js";
-import { getCurrentUsers, getUsers } from "../../assets/js/utils/storage.js";
+import { getJobList } from "../js/utils/api.js";
+import { getCurrentUsers, getUsers } from "../js/utils/storage.js";
 
 const totalUsers = document.querySelector("#totalUsers");
 const activeJobs = document.querySelector("#activeJobs");
