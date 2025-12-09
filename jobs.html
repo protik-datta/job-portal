@@ -128,7 +128,7 @@
           </div>
 
           <!-- Saved Jobs -->
-          <button class="relative hover:text-blue-600 transition">
+          <button class="relative hover:text-blue-600 transition" id="savedJobsBtn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -147,6 +147,7 @@
             </svg>
             <span
               class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold"
+              id="jobCount"
             >
               0
             </span>
@@ -221,9 +222,11 @@
             type="text"
             placeholder="Search for job titles, skills..."
             class="w-full px-4 py-3 outline-none text-gray-700"
+            id="searchJob"
           />
           <button
             class="px-8 bg-blue-600 text-white font-semibold hover:bg-blue-700"
+            id="searchJobBtn"
           >
             Search
           </button>
