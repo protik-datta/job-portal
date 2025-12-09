@@ -41,3 +41,24 @@ export function logoutUser(email) {
   removeCurrentUser(email);
   window.location.href = "index.html";
 }
+
+// save jobs for user
+
+export function saveJobForUser(email, job) {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const updated = users.map((u) => {
+    if (u.email === email) {
+      u.savedJobs = u.savedJobs || [];
+      const exists = u.savedJobs.find((j) => j.id === job.id);
+      if (!exists) u.savedJobs.push(job);
+    }
+    return u;
+  });
+  localStorage.setItem("users", JSON.stringify(updated));
+}
+
+export function getSavedJobs(email) {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find((u) => u.email === email);
+  return user?.savedJobs || [];
+}
