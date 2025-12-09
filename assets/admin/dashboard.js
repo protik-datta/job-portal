@@ -1,4 +1,4 @@
-import { getJobList } from "../js/utils/api.js";
+import { getJobList, getJobSearch, loadAllIndustryJob } from "../js/utils/api.js";
 import { getCurrentUsers, getUsers } from "../js/utils/storage.js";
 
 const totalUsers = document.querySelector("#totalUsers");
@@ -10,15 +10,22 @@ function dashboardDetails() {
   const users = getUsers();
   const currentUsers = getCurrentUsers();
   totalUsers.textContent = users.length;
-
-  getJobList.then((dataNum) => {
-    activeJobs.textContent = dataNum.length;
-  });
-
   activeUsers.textContent = currentUsers.length;
+
+  loadAllIndustryJob()
+    .then((allData) => {
+      const totalJobs = allData.reduce((sum, item) => sum + item.total, 0);
+      if(totalJobs){
+        activeJobs.textContent = totalJobs;
+      }else{
+        activeJobs.textContent = 'Loading...'
+      }
+    })
+    .catch((err) => console.error(err));
 }
 
 dashboardDetails();
+
 
 function showUsers() {
   const users = getUsers();
@@ -52,7 +59,7 @@ function showUsers() {
 
     tableBodyUsers.appendChild(row);
 
-    // ➤ Add event listener for info button
+    // Add event listener for info button
     row.querySelector(".infoBtn").addEventListener("click", () => {
       localStorage.setItem("selectedUser", JSON.stringify(user));
       window.location.href = "admin-user-details.html";
@@ -62,4 +69,3 @@ function showUsers() {
 
 showUsers();
 lucide.replace();
-
